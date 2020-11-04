@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { BrowserWindow, shell, ipcMain, dialog, Event } from 'electron';
+import { app, BrowserWindow, shell, ipcMain, dialog, Event } from 'electron';
 import windowStateKeeper from 'electron-window-state';
 
 import {
@@ -350,8 +350,10 @@ export function createMainWindow(
       const counterValue = getCounterValue(title);
       if (counterValue) {
         setDockBadge(counterValue, options.bounce);
+        app.setBadgeCount(parseInt(counterValue));
       } else {
         setDockBadge('');
+        app.setBadgeCount(0);
       }
     });
   } else {
