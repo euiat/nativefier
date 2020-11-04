@@ -282,7 +282,11 @@ if (require.main === module) {
     .option(
       '--darwin-dark-mode-support',
       '(macOS only) enable Dark Mode support on macOS 10.14+',
-    );
+    )
+    .option(
+      '--start-minimized',
+      'start app minimized but not to tray'
+     );
 
   try {
     args.parse(sanitizedArgs);

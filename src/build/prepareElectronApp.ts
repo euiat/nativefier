@@ -57,6 +57,7 @@ function pickElectronAppArgs(options: AppOptions): any {
     proxyRules: options.nativefier.proxyRules,
     showMenuBar: options.nativefier.showMenuBar,
     singleInstance: options.nativefier.singleInstance,
+    startMinimized: options.nativefier.startMinimized,
     targetUrl: options.packager.targetUrl,
     titleBarStyle: options.nativefier.titleBarStyle,
     tray: options.nativefier.tray,

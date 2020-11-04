@@ -40,6 +40,7 @@ export interface AppOptions {
     proxyRules: string;
     showMenuBar: boolean;
     singleInstance: boolean;
+    startMinimized: boolean;
     titleBarStyle: string;
     tray: string | boolean;
     userAgent: string;

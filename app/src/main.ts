@@ -147,6 +147,9 @@ if (shouldQuit) {
 
   app.on('ready', () => {
     mainWindow = createMainWindow(appArgs, app.quit.bind(this), setDockBadge);
+    if (appArgs.startMinimized) {
+        mainWindow.minimize();
+    }
     createTrayIcon(appArgs, mainWindow);
 
     // Register global shortcuts

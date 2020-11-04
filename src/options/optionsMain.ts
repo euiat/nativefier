@@ -77,6 +77,7 @@ export async function getOptions(rawOptions: any): Promise<AppOptions> {
       processEnvs: rawOptions.processEnvs,
       proxyRules: rawOptions.proxyRules || null,
       showMenuBar: rawOptions.showMenuBar || false,
+      startMinimized: rawOptions.startMinimized || false,
       singleInstance: rawOptions.singleInstance || false,
       titleBarStyle: rawOptions.titleBarStyle || null,
       tray: rawOptions.tray || false,
@@ -162,6 +163,7 @@ export async function getOptions(rawOptions: any): Promise<AppOptions> {
     );
     options.nativefier.globalShortcuts = globalShortcuts;
   }
+
 
   await asyncConfig(options);
 
