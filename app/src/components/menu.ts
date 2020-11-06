@@ -28,7 +28,7 @@ export function createMenu({
       },
       {
         label: 'Redo',
-        accelerator: 'Shift+CmdOrCtrl+Z',
+        accelerator: 'CmdOrCtrl+Y',
         role: 'redo',
       },
       {
@@ -46,7 +46,7 @@ export function createMenu({
       },
       {
         label: 'Copy Current URL',
-        accelerator: 'CmdOrCtrl+L',
+        accelerator: 'Shift+CmdOrCtrl+C',
         click: () => {
           const currentURL = getCurrentUrl();
           clipboard.writeText(currentURL);
@@ -111,7 +111,7 @@ export function createMenu({
       },
       {
         label: 'Reload',
-        accelerator: 'CmdOrCtrl+R',
+        accelerator: 'F5',
         click: (item, focusedWindow) => {
           if (focusedWindow) {
             focusedWindow.reload();
@@ -207,7 +207,7 @@ export function createMenu({
       },
       {
         label: 'Close',
-        accelerator: 'CmdOrCtrl+W',
+        accelerator: 'CmdOrCtrl+Q',
         role: 'close',
       },
     ],
