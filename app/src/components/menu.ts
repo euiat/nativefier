@@ -15,37 +15,37 @@ export function createMenu({
 }): void {
   const zoomResetLabel =
     zoomBuildTimeValue === 1.0
-      ? 'Reset Zoom'
-      : `Reset Zoom (to ${zoomBuildTimeValue * 100}%, set at build time)`;
+      ? 'Zurücksetzen'
+      : `Zurücksetzen (auf ${zoomBuildTimeValue * 100}%, als Standard gesetzt)`;
 
   const editMenu: MenuItemConstructorOptions = {
-    label: '&Edit',
+    label: '&Bearbeiten',
     submenu: [
       {
-        label: 'Undo',
+        label: 'Rückgängig',
         accelerator: 'CmdOrCtrl+Z',
         role: 'undo',
       },
       {
-        label: 'Redo',
-        accelerator: 'CmdOrCtrl+Y',
+        label: 'Wiederholen',
+        accelerator: 'Shift+CmdOrCtrl+Z',
         role: 'redo',
       },
       {
         type: 'separator',
       },
       {
-        label: 'Cut',
+        label: 'Ausschneiden',
         accelerator: 'CmdOrCtrl+X',
         role: 'cut',
       },
       {
-        label: 'Copy',
+        label: 'Kopieren',
         accelerator: 'CmdOrCtrl+C',
         role: 'copy',
       },
       {
-        label: 'Copy Current URL',
+        label: 'Kopiere aktuelle URL',
         accelerator: 'Shift+CmdOrCtrl+C',
         click: () => {
           const currentURL = getCurrentUrl();
@@ -53,32 +53,32 @@ export function createMenu({
         },
       },
       {
-        label: 'Paste',
+        label: 'Einfügen',
         accelerator: 'CmdOrCtrl+V',
         role: 'paste',
       },
       {
-        label: 'Paste and Match Style',
+        label: 'Einfügen und Stil anpassen',
         accelerator: 'CmdOrCtrl+Shift+V',
         role: 'pasteAndMatchStyle',
       },
       {
-        label: 'Select All',
+        label: 'Alles auswählen',
         accelerator: 'CmdOrCtrl+A',
         role: 'selectAll',
       },
       {
-        label: 'Clear App Data',
+        label: 'Lösche App Daten',
         click: clearAppData,
       },
     ],
   };
 
   const viewMenu: MenuItemConstructorOptions = {
-    label: '&View',
+    label: '&Ansicht',
     submenu: [
       {
-        label: 'Back',
+        label: 'Zurück',
         accelerator: (() => {
           const backKbShortcut =
             process.platform === 'darwin' ? 'Cmd+Left' : 'Alt+Left';
@@ -94,7 +94,7 @@ export function createMenu({
         click: goBack,
       },
       {
-        label: 'Forward',
+        label: 'Vor',
         accelerator: (() => {
           const forwardKbShortcut =
             process.platform === 'darwin' ? 'Cmd+Right' : 'Alt+Right';
@@ -110,7 +110,7 @@ export function createMenu({
         click: goForward,
       },
       {
-        label: 'Reload',
+        label: 'Aktualisieren',
         accelerator: 'F5',
         click: (item, focusedWindow) => {
           if (focusedWindow) {
@@ -122,7 +122,7 @@ export function createMenu({
         type: 'separator',
       },
       {
-        label: 'Toggle Full Screen',
+        label: 'Vollbildansicht',
         accelerator: (() => {
           if (process.platform === 'darwin') {
             return 'Ctrl+Cmd+F';
@@ -136,7 +136,7 @@ export function createMenu({
         },
       },
       {
-        label: 'Zoom In',
+        label: 'Vergrößern',
         accelerator: 'CmdOrCtrl+=',
         click: zoomIn,
       },
@@ -148,7 +148,7 @@ export function createMenu({
         click: zoomIn,
       },
       {
-        label: 'Zoom Out',
+        label: 'Verkleinern',
         accelerator: 'CmdOrCtrl+-',
         click: zoomOut,
       },
@@ -180,7 +180,7 @@ export function createMenu({
         type: 'separator',
       },
       {
-        label: 'Toggle Developer Tools',
+        label: 'Entwicklerwerkzeuge ein-/ausblenden',
         accelerator: (() => {
           if (process.platform === 'darwin') {
             return 'Alt+Cmd+I';
@@ -197,16 +197,16 @@ export function createMenu({
   }
 
   const windowMenu: MenuItemConstructorOptions = {
-    label: '&Window',
+    label: '&Fenster',
     role: 'window',
     submenu: [
       {
-        label: 'Minimize',
+        label: 'Minimieren',
         accelerator: 'CmdOrCtrl+M',
         role: 'minimize',
       },
       {
-        label: 'Close',
+        label: 'Schließen',
         accelerator: 'CmdOrCtrl+Q',
         role: 'close',
       },
@@ -214,18 +214,18 @@ export function createMenu({
   };
 
   const helpMenu: MenuItemConstructorOptions = {
-    label: '&Help',
+    label: '&Hilfe',
     role: 'help',
     submenu: [
       {
-        label: `Built with Nativefier v${nativefierVersion}`,
+        label: `Erstellt mit Nativefier v${nativefierVersion}`,
         click: () => {
           // eslint-disable-next-line @typescript-eslint/no-floating-promises
           shell.openExternal('https://github.com/jiahaog/nativefier');
         },
       },
       {
-        label: 'Report an Issue',
+        label: 'Ein Problem melden',
         click: () => {
           // eslint-disable-next-line @typescript-eslint/no-floating-promises
           shell.openExternal('https://github.com/jiahaog/nativefier/issues');
